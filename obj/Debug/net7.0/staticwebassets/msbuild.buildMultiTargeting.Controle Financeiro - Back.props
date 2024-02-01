@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Controle Financeiro - Back.props" />
+</Project>

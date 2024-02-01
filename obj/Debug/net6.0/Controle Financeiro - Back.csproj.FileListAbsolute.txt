@@ -1,0 +1,77 @@
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/appsettings.Development.json
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/appsettings.json
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/global.json
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back.deps.json
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back.runtimeconfig.json
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back.pdb
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Humanizer.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Npgsql.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.csproj.AssemblyReference.cache
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.GeneratedMSBuildEditorConfig.editorconfig
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.AssemblyInfoInputs.cache
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.AssemblyInfo.cs
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.csproj.CoreCompileInputs.cache
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.MvcApplicationPartsAssemblyInfo.cs
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.MvcApplicationPartsAssemblyInfo.cache
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/staticwebassets.build.json
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/staticwebassets.development.json
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/scopedcss/bundle/Controle Financeiro - Back.styles.css
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.csproj.CopyComplete
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/refint/Controle Financeiro - Back.dll
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.pdb
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.genruntimeconfig.cache
+/home/savio/Área de Trabalho/Meus projetos/Estudos/Controle Financeiro - Back/obj/Debug/net6.0/ref/Controle Financeiro - Back.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.csproj.AssemblyReference.cache
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.GeneratedMSBuildEditorConfig.editorconfig
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.AssemblyInfoInputs.cache
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.AssemblyInfo.cs
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.csproj.CoreCompileInputs.cache
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.MvcApplicationPartsAssemblyInfo.cs
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.MvcApplicationPartsAssemblyInfo.cache
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/refint/Controle Financeiro - Back.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.pdb
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/appsettings.Development.json
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/appsettings.json
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/global.json
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back.deps.json
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back.runtimeconfig.json
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Controle Financeiro - Back.pdb
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/AutoMapper.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Humanizer.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Npgsql.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/staticwebassets.build.json
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/staticwebassets.development.json
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/scopedcss/bundle/Controle Financeiro - Back.styles.css
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.csproj.CopyComplete
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.genruntimeconfig.cache
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/ref/Controle Financeiro - Back.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/System.Text.Json.dll
