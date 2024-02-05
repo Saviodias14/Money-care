@@ -12,4 +12,6 @@ public class ExpenseContext : DbContext
     }
 
     public DbSet<Expense> expenses { get; set; }
+    public DbSet<Services> services { get; set; }
+    public DbSet<Users> users { get; set; }
 }

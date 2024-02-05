@@ -10,8 +10,12 @@ public class Expense
     [Range(0, double.MaxValue, ErrorMessage = "O valor gasto não pode ser negativo!")]
     public double Amount { get; set; }
     [Required]
-    public string Service { get; set; }
+    public int UserId { get; set; }
     [Required]
     public string Description { get; set; }
-    public DateTime Date { get; set; }
+    [Required]
+    public int ServiceId { get; set; }
+    public DateTime Date { get; set; } = DateTime.Now;
+    public virtual Users User { get; set; }
+    public virtual Services Service { get; set; }
 }

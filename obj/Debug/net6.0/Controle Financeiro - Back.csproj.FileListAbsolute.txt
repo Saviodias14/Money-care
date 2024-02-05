@@ -75,3 +75,5 @@
 /home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/Controle Financeiro - Back.genruntimeconfig.cache
 /home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/obj/Debug/net6.0/ref/Controle Financeiro - Back.dll
 /home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/System.Text.Json.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Castle.Core.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Proxies.dll

@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var conectionString = builder.Configuration.GetConnectionString("ExpenseConnection");
 builder.Services.AddDbContext<ExpenseContext>(opts =>
-opts.UseNpgsql(conectionString, npgsqlOptions =>
+opts.UseLazyLoadingProxies().UseNpgsql(conectionString, npgsqlOptions =>
     {
         npgsqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SingleQuery);
     })
