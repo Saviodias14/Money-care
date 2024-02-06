@@ -12,10 +12,10 @@ namespace Controle_Financeiro___Back.Controllers;
 [Route("[controller]")]
 public class ExpenseController : ControllerBase
 {
-    private ExpenseContext _context;
+    private FinaceContext _context;
     private IMapper _mapper;
 
-    public ExpenseController(ExpenseContext context, IMapper mapper)
+    public ExpenseController(FinaceContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
@@ -24,7 +24,7 @@ public class ExpenseController : ControllerBase
     public IActionResult AddExpense([FromBody] CreateExpenseDto expenseDto)
     {
         Expense expense = _mapper.Map<Expense>(expenseDto);
-        _context.expenses.Add(expense);
+        _context.Expenses.Add(expense);
         _context.SaveChanges();
         return CreatedAtAction(nameof(GetExpenseById),
         new { id = expense.Id },
@@ -34,13 +34,13 @@ public class ExpenseController : ControllerBase
     [HttpGet]
     public IEnumerable<Expense> GetExpense([FromQuery] int take = 5, [FromQuery] int skip = 0)
     {
-        return _context.expenses.Skip(skip).Take(take);
+        return _context.Expenses.Skip(skip).Take(take);
     }
 
     [HttpGet("{id}")]
     public IActionResult GetExpenseById(int id)
     {
-        var expense = _context.expenses.FirstOrDefault(expense => expense.Id == id);
+        var expense = _context.Expenses.FirstOrDefault(expense => expense.Id == id);
         if (expense == null) return NotFound();
         return Ok(expense);
     }
@@ -48,7 +48,7 @@ public class ExpenseController : ControllerBase
     [HttpPut("{id}")]
     public IActionResult UpdateExpense(int id, [FromBody] UpdateExpenseDto expenseDto)
     {
-        var expense = _context.expenses.FirstOrDefault(expense => expense.Id == id);
+        var expense = _context.Expenses.FirstOrDefault(expense => expense.Id == id);
         if (expense == null) return NotFound();
         _mapper.Map(expenseDto, expense);
         _context.SaveChanges();
@@ -58,10 +58,10 @@ public class ExpenseController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteExpense(int id)
     {
-        var expense = _context.expenses.FirstOrDefault(expense => expense.Id == id);
+        var expense = _context.Expenses.FirstOrDefault(expense => expense.Id == id);
         if (expense == null) return NotFound();
-        
-        _context.expenses.Remove(expense);
+
+        _context.Expenses.Remove(expense);
         _context.SaveChanges();
 
         return NoContent();

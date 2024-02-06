@@ -1,10 +1,13 @@
 using Controle_Financeiro___Back.Data;
+using Controle_Financeiro___Back.Models;
+using Controle_Financeiro___Back.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var conectionString = builder.Configuration.GetConnectionString("ExpenseConnection");
-builder.Services.AddDbContext<ExpenseContext>(opts =>
+builder.Services.AddDbContext<FinaceContext>(opts =>
 opts.UseLazyLoadingProxies().UseNpgsql(conectionString, npgsqlOptions =>
     {
         npgsqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SingleQuery);
@@ -13,6 +16,12 @@ opts.UseLazyLoadingProxies().UseNpgsql(conectionString, npgsqlOptions =>
 
 builder.Services
 .AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddScoped<SingUpService>();
+
+builder.Services.AddIdentity<Users, IdentityRole>()
+.AddEntityFrameworkStores<FinaceContext>()
+.AddDefaultTokenProviders();
 
 // Add services to the container.
 

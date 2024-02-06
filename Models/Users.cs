@@ -1,22 +1,27 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace Controle_Financeiro___Back.Models;
 
-public class Users
+public class Users : IdentityUser
 {
-    [Key]
-    [Required]
-    public int Id { get; internal set; }
-    [Required]
-    [StringLength(100, MinimumLength = 3, ErrorMessage = "O nome deve ter entre 3 e 100 caracteres.")]
-    public string Name { get; set; }
-    [Required]
-    [EmailAddress(ErrorMessage = "O campo precisa ser um endereço de e-mail válido.")]
-    public string Email { get; set; }
-    [Required]
-    [DataType(DataType.Password)]
-    [StringLength(50, MinimumLength = 6, ErrorMessage = "A senha deve ter entre 6 e 50 caracteres.")]
-    public string Password { get; set; }
+    public Users() : base()
+    {
+
+    }
+    // [Key]
+    // [Required]
+    // public int Id { get; internal set; }
+    // [Required]
+    // [StringLength(100, MinimumLength = 3, ErrorMessage = "O nome deve ter entre 3 e 100 caracteres.")]
+    // public string Name { get; set; }
+    // [Required]
+    // [EmailAddress(ErrorMessage = "O campo precisa ser um endereço de e-mail válido.")]
+    // public string Email { get; set; }
+    // [Required]
+    // [DataType(DataType.Password)]
+    // [StringLength(50, MinimumLength = 6, ErrorMessage = "A senha deve ter entre 6 e 50 caracteres.")]
+    // public string Password { get; set; }
     public virtual ICollection<Expense> Expenses { get; set; }
 
 }

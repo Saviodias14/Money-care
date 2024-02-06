@@ -1,5 +1,5 @@
-
 using Controle_Financeiro___Back.Data.Dtos;
+using Controle_Financeiro___Back.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Controle_Financeiro___Back.Controllers;
@@ -7,9 +7,16 @@ namespace Controle_Financeiro___Back.Controllers;
 [Route("[Controller]")]
 public class SingUpController : ControllerBase
 {
-    [HttpPost]
-    public IActionResult SingUp (CreateUserDto userDto)
+    private SingUpService _singUpService;
+
+    public SingUpController(SingUpService singUpService)
     {
-        throw new NotImplementedException();
+        _singUpService = singUpService;
+    }
+    [HttpPost]
+    public async Task<IActionResult> SingUp(CreateUserDto userDto)
+    {
+        await _singUpService.SingUpUser(userDto);
+        return Ok("Usuário Cadastrado");
     }
 }

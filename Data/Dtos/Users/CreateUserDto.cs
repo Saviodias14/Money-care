@@ -5,7 +5,7 @@ public class CreateUserDto
 {
     [Required]
     [StringLength(100, MinimumLength = 3, ErrorMessage = "O nome deve ter entre 3 e 100 caracteres.")]
-    public string Name { get; set; }
+    public string Username { get; set; }
     [Required]
     [EmailAddress(ErrorMessage = "O campo precisa ser um endereço de e-mail válido.")]
     public string Email { get; set; }

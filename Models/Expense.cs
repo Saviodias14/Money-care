@@ -14,8 +14,8 @@ public class Expense
     [Required]
     public string Description { get; set; }
     [Required]
-    public int ServiceId { get; set; }
+    public int TypeId { get; set; }
     public DateTime Date { get; set; } = DateTime.Now;
     public virtual Users User { get; set; }
-    public virtual Services Service { get; set; }
+    public virtual Types Types { get; set; }
 }
