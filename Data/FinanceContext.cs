@@ -13,6 +13,6 @@ public class FinaceContext : IdentityDbContext<Users>
     }
 
     public DbSet<Expense> Expenses { get; set; }
-    public DbSet<Types> Types { get; set; }
+    public DbSet<Models.Type> Type { get; set; }
     public DbSet<Users> Users { get; set; }
 }

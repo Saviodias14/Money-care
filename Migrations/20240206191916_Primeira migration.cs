@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Controle_Financeiro__Back.Migrations
 {
-    public partial class AtualizaçãodoBanco : Migration
+    public partial class Primeiramigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,7 +50,7 @@ namespace Controle_Financeiro__Back.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Services",
+                name: "Type",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -59,7 +59,7 @@ namespace Controle_Financeiro__Back.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Services", x => x.Id);
+                    table.PrimaryKey("PK_Type", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -175,24 +175,24 @@ namespace Controle_Financeiro__Back.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Amount = table.Column<double>(type: "double precision", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
-                    ServiceId = table.Column<int>(type: "integer", nullable: false),
-                    Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UserId1 = table.Column<string>(type: "text", nullable: true)
+                    TypeId = table.Column<int>(type: "integer", nullable: false),
+                    Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Expenses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Expenses_AspNetUsers_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Expenses_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Expenses_Services_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "Services",
+                        name: "FK_Expenses_Type_TypeId",
+                        column: x => x.TypeId,
+                        principalTable: "Type",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -235,14 +235,14 @@ namespace Controle_Financeiro__Back.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Expenses_ServiceId",
+                name: "IX_Expenses_TypeId",
                 table: "Expenses",
-                column: "ServiceId");
+                column: "TypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Expenses_UserId1",
+                name: "IX_Expenses_UserId",
                 table: "Expenses",
-                column: "UserId1");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -272,7 +272,7 @@ namespace Controle_Financeiro__Back.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Services");
+                name: "Type");
         }
     }
 }

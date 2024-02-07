@@ -9,5 +9,10 @@ public class ExpensesProfile : Profile
     {
         CreateMap<CreateExpenseDto, Expense>();
         CreateMap<UpdateExpenseDto, Expense>();
+        CreateMap<Expense, ReadExpenseDto>()
+                .ForMember(expenseDto => expenseDto.User,
+                    opt => opt.MapFrom(expense => expense.User))
+                .ForMember(expenseDto => expenseDto.Type,
+                    opt => opt.MapFrom(expense => expense.Type));
     }
 }

@@ -43,25 +43,20 @@ namespace Controle_Financeiro__Back.Migrations
                     b.Property<int>("TypeId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TypesId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TypesId");
+                    b.HasIndex("TypeId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Expenses");
                 });
 
-            modelBuilder.Entity("Controle_Financeiro___Back.Models.Types", b =>
+            modelBuilder.Entity("Controle_Financeiro___Back.Models.Type", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,7 +70,7 @@ namespace Controle_Financeiro__Back.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Types");
+                    b.ToTable("Type");
                 });
 
             modelBuilder.Entity("Controle_Financeiro___Back.Models.Users", b =>
@@ -276,17 +271,19 @@ namespace Controle_Financeiro__Back.Migrations
 
             modelBuilder.Entity("Controle_Financeiro___Back.Models.Expense", b =>
                 {
-                    b.HasOne("Controle_Financeiro___Back.Models.Types", "Types")
+                    b.HasOne("Controle_Financeiro___Back.Models.Type", "Type")
                         .WithMany("Expenses")
-                        .HasForeignKey("TypesId")
+                        .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Controle_Financeiro___Back.Models.Users", "User")
                         .WithMany("Expenses")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Types");
+                    b.Navigation("Type");
 
                     b.Navigation("User");
                 });
@@ -342,7 +339,7 @@ namespace Controle_Financeiro__Back.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Controle_Financeiro___Back.Models.Types", b =>
+            modelBuilder.Entity("Controle_Financeiro___Back.Models.Type", b =>
                 {
                     b.Navigation("Expenses");
                 });

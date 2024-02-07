@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Controle_Financeiro___Back.Models;
 
-public class Types
+public class Type
 {
     [Key]
     [Required]

@@ -82,3 +82,11 @@
 /home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.Extensions.Identity.Core.dll
 /home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.Extensions.Identity.Stores.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
