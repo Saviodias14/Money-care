@@ -25,14 +25,14 @@ public class UserService
     {
         Users users = _mapper.Map<Users>(userDto);
         IdentityResult result = await _userManager.CreateAsync(users, userDto.Password);
-        if (!result.Succeeded) throw new ApplicationException("Falha ao cadastrar usuário!");
+        if (!result.Succeeded) throw new Exception("Falha ao cadastrar usuário!");
     }
 
     public async Task<string> LoginAsync(LoginUserDto userDto)
     {
         var (username, password) = userDto;
         var result = await _singInManager.PasswordSignInAsync(username, password, false, false);
-        if (!result.Succeeded) throw new ApplicationException("Senha e/ou usuário incorretos");
+        if (!result.Succeeded) throw new Exception("Senha e/ou usuário incorretos");
         var user = _singInManager
         .UserManager
         .Users

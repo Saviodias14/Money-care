@@ -7,8 +7,8 @@ public class UpdateExpenseRequest
     [Required]
     [Range(0, double.MaxValue, ErrorMessage = "O valor gasto deve ser um número positivo!")]
     public double Amount { get; set; }
-    public string Description { get; set; }
+    public string? Description { get; set; } = "";
     [Required]
-    public string Name { get; set; }
+    public UpdateTypeDto Type { get; set; }
     public DateTime Date { get; set; } = DateTime.Now;
 }

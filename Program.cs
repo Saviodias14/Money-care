@@ -22,9 +22,10 @@ builder.Services
 .AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<TokenService>();
+builder.Services.AddTransient<TokenService>();
 builder.Services.AddScoped<ExpenseService>();
-builder.Services.AddSingleton<UserIdMiddleware>();
+builder.Services.AddScoped<UserIdMiddleware>();
+builder.Services.AddScoped<ErrorHandler>();
 
 builder.Services.AddIdentity<Users, IdentityRole>()
 .AddEntityFrameworkStores<FinaceContext>()

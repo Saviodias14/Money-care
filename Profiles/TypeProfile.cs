@@ -9,5 +9,6 @@ public class TypeProfile : Profile
     {
         CreateMap<CreateTypeDto, Models.Type>();
         CreateMap<Models.Type, ReadTypesDto>();
+        CreateMap<UpdateTypeDto, Models.Type>();
     }
 }

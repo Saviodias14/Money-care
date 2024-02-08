@@ -17,13 +17,33 @@ public class UserController : ControllerBase
     [HttpPost("SingUp")]
     public async Task<IActionResult> SingUp(CreateUserDto userDto)
     {
-        await _UserService.SingUpUser(userDto);
-        return Ok("Usuário Cadastrado");
+        try
+        {
+            await _UserService.SingUpUser(userDto);
+            return Ok("Usuário Cadastrado");
+        }
+        catch (Exception ex)
+        {
+            return new ObjectResult(ex.Message)
+            {
+                StatusCode = 500
+            };
+        }
     }
     [HttpPost("SingIn")]
     public async Task<IActionResult> Login(LoginUserDto userDto)
     {
-        var token = await _UserService.LoginAsync(userDto);
-        return Ok(token);
+        try
+        {
+            var token = await _UserService.LoginAsync(userDto);
+            return Ok(token);
+        }
+        catch (Exception ex)
+        {
+            return new ObjectResult(ex.Message)
+            {
+                StatusCode = 400
+            };
+        }
     }
 }

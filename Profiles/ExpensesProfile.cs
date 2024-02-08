@@ -15,5 +15,6 @@ public class ExpensesProfile : Profile
             .ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User))
             .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type));
         CreateMap<Expense, CreateExpenseResponse>();
+        CreateMap<Expense, UpdateExpenseResponse>();
     }
 }

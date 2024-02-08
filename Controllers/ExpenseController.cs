@@ -13,79 +13,87 @@ namespace Controle_Financeiro___Back.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ExpenseController : ControllerBase
+public class ExpenseController : ControllerBase 
 {
-    private FinaceContext _context;
-    private IMapper _mapper;
-    private UserIdMiddleware _userIdMiddleware;
-    private ExpenseService _expenseService;
+    private readonly ExpenseService _expenseService;
+    private ErrorHandler _errorHandler;
 
-    public ExpenseController(ExpenseService expenseService, FinaceContext context, IMapper mapper, IHttpContextAccessor httpContext, UserIdMiddleware userIdMiddleware, IHttpContextAccessor httpContextAccessor)
+    public ExpenseController(ExpenseService expenseService, ErrorHandler errorHandler)
     {
-        _context = context;
-        _mapper = mapper;
-        _userIdMiddleware = userIdMiddleware;
         _expenseService = expenseService;
+        _errorHandler = errorHandler;
     }
     [HttpPost]
 
     public async Task<IActionResult> AddExpense([FromBody] CreateExpenseRequest expenseDto)
     {
-        var expense = await _expenseService.CreateExpenseAsync(expenseDto);
-        return CreatedAtAction(nameof(GetExpenseById),
-        new { id = expense.Id },
-        expense);
+        try
+        {
+            var expense = await _expenseService.CreateExpenseAsync(expenseDto);
+            return CreatedAtAction(nameof(GetExpenseById),
+            new { id = expense.Id },
+            expense);
+        }
+        catch (Exception ex)
+        {
+            return _errorHandler.SendErrors(ex);
+        }
     }
 
     [HttpGet]
     public async Task<IActionResult> GetExpense([FromQuery] int take = 5, [FromQuery] int skip = 0)
     {
-        var result = await _expenseService.GetExpensesAsync(take, skip);
-        return Ok(result);
+        try
+        {
+            var result = await _expenseService.GetExpensesAsync(take, skip);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return _errorHandler.SendErrors(ex);
+        }
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult> GetExpenseById(int id)
+    public async Task<IActionResult> GetExpenseById(int id)
     {
-        var userId = _userIdMiddleware.GetUserId();
-        if (userId == null) return Unauthorized();
-        var expense = await _context.Expenses
-        .FirstOrDefaultAsync(expense =>
-        expense.Id == id && expense.UserId == userId);
-        if (expense == null) return NotFound();
-        var result = _mapper.Map<ReadExpenseResponse>(expense);
-        return Ok(result);
+        try
+        {
+            var result = await _expenseService.GetExpenseByIdAsync(id);
+            if (result is null) return NotFound("Despesa inexistente!");
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return _errorHandler.SendErrors(ex);
+        }
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateExpense(int id, [FromBody] UpdateExpenseRequest expenseDto)
     {
-        var userId = _userIdMiddleware.GetUserId();
-        if (userId == null) return Unauthorized();
-        var expense = await _context.Expenses
-        .FirstOrDefaultAsync(expense =>
-        expense.Id == id && expense.UserId == userId);
-        if (expense == null) return NotFound();
-        var type = await _context.Type.FirstOrDefaultAsync(type => type.Name == expenseDto.Name);
-        if (type == null) return NotFound();
-        expense.TypeId = type.Id;
-        expenseDto.Date = expenseDto.Date.ToUniversalTime();
-        _mapper.Map(expenseDto, expense);
-        _context.SaveChanges();
-        return Ok(expense);
+        try
+        {
+            var expense = await _expenseService.UpdateExpenseAsync(expenseDto, id);
+            return Ok(expense);
+        }
+        catch (Exception ex)
+        {
+            return _errorHandler.SendErrors(ex);
+        }
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteExpense(int id)
     {
-        var userId = _userIdMiddleware.GetUserId();
-        if (userId == null) return Unauthorized();
-        var expense = await _context.Expenses.FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == userId);
-        if (expense == null) return NotFound();
-
-        _context.Expenses.Remove(expense);
-        await _context.SaveChangesAsync();
-
-        return NoContent();
+        try
+        {
+            await _expenseService.DeleteExpenseAsync(id);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return _errorHandler.SendErrors(ex);
+        }
     }
 }
