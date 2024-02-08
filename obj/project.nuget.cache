@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "V/lOG7J3Ts9/4WkML5hk7q+AqnqPSxnDxdca8GI+gMkmR5K9SSZeN7o+Pk7qicOY0YLqh6DqB4634bh1Bp6rmg==",
+  "dgSpecHash": "4ISZeeaLxPjULHmuSJRJFScuJUNAWlYaNrFogT1F3CfMFwCOmtmvcWBYM6iOYprjk2c9yUfbP324CG6vTh6Hsw==",
   "success": true,
   "projectFilePath": "/home/savio/Área de Trabalho/Projetos /Backend/Controle Financeiro - Back/Controle Financeiro - Back.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,7 @@
     "/home/savio/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/home/savio/.nuget/packages/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "/home/savio/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
+    "/home/savio/.nuget/packages/newtonsoft.json/12.0.1/newtonsoft.json.12.0.1.nupkg.sha512",
     "/home/savio/.nuget/packages/npgsql/6.0.2/npgsql.6.0.2.nupkg.sha512",
     "/home/savio/.nuget/packages/npgsql.entityframeworkcore.postgresql/6.0.2/npgsql.entityframeworkcore.postgresql.6.0.2.nupkg.sha512",
     "/home/savio/.nuget/packages/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

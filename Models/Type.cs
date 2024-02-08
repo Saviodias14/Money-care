@@ -10,6 +10,6 @@ public class Type
     [Required]
     public string Name { get; set; }
 
-    public virtual ICollection<Expense> Expenses { get; set; }
+    // public virtual ICollection<Expense> Expenses { get; set; }
 
 }

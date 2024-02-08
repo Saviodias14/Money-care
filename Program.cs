@@ -23,6 +23,7 @@ builder.Services
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<ExpenseService>();
 builder.Services.AddSingleton<UserIdMiddleware>();
 
 builder.Services.AddIdentity<Users, IdentityRole>()

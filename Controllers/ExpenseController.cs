@@ -1,10 +1,11 @@
-using System.IdentityModel.Tokens.Jwt;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using AutoMapper;
 using Controle_Financeiro___Back.Data;
 using Controle_Financeiro___Back.Data.Dtos;
 using Controle_Financeiro___Back.Middleware;
 using Controle_Financeiro___Back.Models;
-using Microsoft.AspNetCore.Authorization;
+using Controle_Financeiro___Back.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,71 +15,76 @@ namespace Controle_Financeiro___Back.Controllers;
 [Route("[controller]")]
 public class ExpenseController : ControllerBase
 {
-    private IHttpContextAccessor _httpContext;
     private FinaceContext _context;
     private IMapper _mapper;
     private UserIdMiddleware _userIdMiddleware;
+    private ExpenseService _expenseService;
 
-    public ExpenseController(FinaceContext context, IMapper mapper, IHttpContextAccessor httpContext, UserIdMiddleware userIdMiddleware)
+    public ExpenseController(ExpenseService expenseService, FinaceContext context, IMapper mapper, IHttpContextAccessor httpContext, UserIdMiddleware userIdMiddleware, IHttpContextAccessor httpContextAccessor)
     {
         _context = context;
         _mapper = mapper;
         _userIdMiddleware = userIdMiddleware;
+        _expenseService = expenseService;
     }
     [HttpPost]
 
-    public IActionResult AddExpense([FromBody] CreateExpenseDto expenseDto)
+    public async Task<IActionResult> AddExpense([FromBody] CreateExpenseRequest expenseDto)
     {
-        var userId = _userIdMiddleware.GetUserId();
-        var typeId = 1;
-        Expense expense = _mapper.Map<Expense>(expenseDto);
-        expense.TypeId = typeId;
-        expense.UserId = userId;
-        _context.Expenses.Add(expense);
-        _context.SaveChanges();
+        var expense = await _expenseService.CreateExpenseAsync(expenseDto);
         return CreatedAtAction(nameof(GetExpenseById),
         new { id = expense.Id },
         expense);
     }
 
     [HttpGet]
-    public async Task<IEnumerable<ReadExpenseDto>> GetExpense([FromQuery] int take = 5, [FromQuery] int skip = 0)
+    public async Task<IActionResult> GetExpense([FromQuery] int take = 5, [FromQuery] int skip = 0)
     {
-        var userId = _userIdMiddleware.GetUserId();
-        var result = await _context.Expenses
-            .Where(x => x.UserId.Equals(userId))
-            .Skip(skip)
-            .Take(take)
-            .ToListAsync();
-        return _mapper.Map<List<ReadExpenseDto>>(result);
+        var result = await _expenseService.GetExpensesAsync(take, skip);
+        return Ok(result);
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetExpenseById(int id)
+    public async Task<ActionResult> GetExpenseById(int id)
     {
-        var expense = _context.Expenses.FirstOrDefault(expense => expense.Id == id);
+        var userId = _userIdMiddleware.GetUserId();
+        if (userId == null) return Unauthorized();
+        var expense = await _context.Expenses
+        .FirstOrDefaultAsync(expense =>
+        expense.Id == id && expense.UserId == userId);
         if (expense == null) return NotFound();
-        return Ok(expense);
+        var result = _mapper.Map<ReadExpenseResponse>(expense);
+        return Ok(result);
     }
 
     [HttpPut("{id}")]
-    public IActionResult UpdateExpense(int id, [FromBody] UpdateExpenseDto expenseDto)
+    public async Task<IActionResult> UpdateExpense(int id, [FromBody] UpdateExpenseRequest expenseDto)
     {
-        var expense = _context.Expenses.FirstOrDefault(expense => expense.Id == id);
+        var userId = _userIdMiddleware.GetUserId();
+        if (userId == null) return Unauthorized();
+        var expense = await _context.Expenses
+        .FirstOrDefaultAsync(expense =>
+        expense.Id == id && expense.UserId == userId);
         if (expense == null) return NotFound();
+        var type = await _context.Type.FirstOrDefaultAsync(type => type.Name == expenseDto.Name);
+        if (type == null) return NotFound();
+        expense.TypeId = type.Id;
+        expenseDto.Date = expenseDto.Date.ToUniversalTime();
         _mapper.Map(expenseDto, expense);
         _context.SaveChanges();
-        return NoContent();
+        return Ok(expense);
     }
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteExpense(int id)
+    public async Task<IActionResult> DeleteExpense(int id)
     {
-        var expense = _context.Expenses.FirstOrDefault(expense => expense.Id == id);
+        var userId = _userIdMiddleware.GetUserId();
+        if (userId == null) return Unauthorized();
+        var expense = await _context.Expenses.FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == userId);
         if (expense == null) return NotFound();
 
         _context.Expenses.Remove(expense);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
 
         return NoContent();
     }

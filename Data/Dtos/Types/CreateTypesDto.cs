@@ -2,8 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Controle_Financeiro___Back.Data.Dtos.Services;
 
-public class CreateServiceDto
+public class CreateTypeDto
 {
     [Required]
-    public int Name { get; set; }
+    public string Name { get; set; }
 }

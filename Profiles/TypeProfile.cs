@@ -7,6 +7,7 @@ public class TypeProfile : Profile
 {
     public TypeProfile()
     {
+        CreateMap<CreateTypeDto, Models.Type>();
         CreateMap<Models.Type, ReadTypesDto>();
     }
 }

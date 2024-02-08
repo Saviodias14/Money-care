@@ -2,7 +2,7 @@ using Controle_Financeiro___Back.Data.Dtos.Services;
 
 namespace Controle_Financeiro___Back.Data.Dtos;
 
-public class ReadExpenseDto
+public class ReadExpenseResponse
 {
     public int Id { get; internal set; }
     public ReadUserDto User { get; set; }

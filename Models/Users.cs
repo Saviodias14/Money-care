@@ -22,6 +22,5 @@ public class Users : IdentityUser
     // [DataType(DataType.Password)]
     // [StringLength(50, MinimumLength = 6, ErrorMessage = "A senha deve ter entre 6 e 50 caracteres.")]
     // public string Password { get; set; }
-    public virtual ICollection<Expense> Expenses { get; set; }
 
 }
