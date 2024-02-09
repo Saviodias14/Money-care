@@ -8,7 +8,7 @@ public class CreateExpenseRequest
     [Range(0, double.MaxValue, ErrorMessage = "O valor gasto deve ser um número positivo!")]
     public double Amount { get; set; }
     [Required]
-    public CreateTypeDto Type { get; set; }
+    public CreateTypeRequest Type { get; set; }
     public DateTime Date { get; set; } = DateTime.Now;
     public string Description { get; set; } = "";
 }

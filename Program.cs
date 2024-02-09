@@ -1,4 +1,5 @@
 using System.Text;
+using Controle_Financeiro___Back.Controllers;
 using Controle_Financeiro___Back.Data;
 using Controle_Financeiro___Back.Middleware;
 using Controle_Financeiro___Back.Models;
@@ -26,6 +27,7 @@ builder.Services.AddTransient<TokenService>();
 builder.Services.AddScoped<ExpenseService>();
 builder.Services.AddScoped<UserIdMiddleware>();
 builder.Services.AddScoped<ErrorHandler>();
+builder.Services.AddScoped<TypeController>();
 
 builder.Services.AddIdentity<Users, IdentityRole>()
 .AddEntityFrameworkStores<FinaceContext>()

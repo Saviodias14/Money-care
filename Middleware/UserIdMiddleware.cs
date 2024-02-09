@@ -19,7 +19,8 @@ public class UserIdMiddleware
     [Authorize]
     public async Task<string?> GetUserId()
     {
-        var token = _httpContext.HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+        var HttpContext = _httpContext.HttpContext;
+        var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
         if (token.IsNullOrEmpty()) throw new Exception("Unauthorized");
         var handler = new JwtSecurityTokenHandler();
         var jsonToken = handler.ReadToken(token) as JwtSecurityToken; ;

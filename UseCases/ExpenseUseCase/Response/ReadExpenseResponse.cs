@@ -7,7 +7,7 @@ public class ReadExpenseResponse
     public int Id { get; internal set; }
     public ReadUserDto User { get; set; }
     public double Amount { get; set; }
-    public ReadTypesDto Type { get; set; }
+    public ReadTypesResponse Type { get; set; }
     public string? Description { get; set; }
     public DateTime Date { get; set; }
 }

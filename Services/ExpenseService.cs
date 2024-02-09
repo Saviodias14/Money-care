@@ -6,29 +6,36 @@ using Controle_Financeiro___Back.Middleware;
 using Controle_Financeiro___Back.Models;
 using Microsoft.EntityFrameworkCore;
 using Controle_Financeiro___Back.UseCases.ExpenseUseCase.Response;
+using Controle_Financeiro___Back.Controllers;
 
 namespace Controle_Financeiro___Back.Services;
 public class ExpenseService : IExpenseService
 {
-    private FinaceContext _context;
-    private IMapper _mapper;
-    private UserIdMiddleware _userIdMiddleware;
+    private readonly FinaceContext _context;
+    private readonly IMapper _mapper;
+    private readonly UserIdMiddleware _userIdMiddleware;
+    private readonly TypeController _typeController;
 
-    public ExpenseService(FinaceContext context, IMapper mapper, UserIdMiddleware userIdMiddleware)
+    public ExpenseService(FinaceContext context, IMapper mapper, UserIdMiddleware userIdMiddleware, TypeController typeController)
     {
         _context = context;
         _mapper = mapper;
         _userIdMiddleware = userIdMiddleware;
+        _typeController = typeController;
     }
 
     public async Task<CreateExpenseResponse> CreateExpenseAsync(CreateExpenseRequest expenseDto)
     {
         var userId = await _userIdMiddleware.GetUserId() ?? throw new Exception("Unauthorized");
+
         var type = await _context.Type
         .FirstOrDefaultAsync(type =>
-        type.Name == expenseDto.Type.Name) ?? throw new Exception("NotFound");
+        type.Name.ToLower() == expenseDto.Type.Name.ToLower()) ??
+        await _typeController.CreateType(expenseDto.Type);
+
         expenseDto.Date = expenseDto.Date.ToUniversalTime();
         var expense = _mapper.Map<Expense>(expenseDto);
+
         expense.TypeId = type.Id;
         expense.Type = type;
         expense.UserId = userId;
@@ -53,7 +60,7 @@ public class ExpenseService : IExpenseService
     public async Task<ReadExpenseResponse> GetExpenseByIdAsync(int id)
     {
         var userId = await _userIdMiddleware.GetUserId() ?? throw new UnauthorizedAccessException("Unauthorized");
-        var expense = await FindExpense(userId, id) ?? throw new Exception("NotFound");
+        var expense = await FindUserExpenseById(userId, id) ?? throw new Exception("NotFound");
         var result = _mapper.Map<ReadExpenseResponse>(expense);
         return result;
     }
@@ -61,9 +68,9 @@ public class ExpenseService : IExpenseService
     public async Task<UpdateExpenseResponse> UpdateExpenseAsync(UpdateExpenseRequest expenseDto, int id)
     {
         var userId = await _userIdMiddleware.GetUserId() ?? throw new Exception("Unauthorized");
-        var expense = await FindExpense(userId, id) ?? throw new Exception("NotFound");
+        var expense = await FindUserExpenseById(userId, id) ?? throw new Exception("NotFound");
         var type = await _context.Type.FirstOrDefaultAsync(type => type.Name == expenseDto.Type.Name) ??
-        throw new Exception("NotFound");
+        await _typeController.CreateType(expenseDto.Type);
         expense.TypeId = type.Id;
         expense.Date = expenseDto.Date.ToUniversalTime();
         var result = _mapper.Map(expenseDto, expense);
@@ -74,12 +81,12 @@ public class ExpenseService : IExpenseService
     public async Task DeleteExpenseAsync(int id)
     {
         var userId = await _userIdMiddleware.GetUserId() ?? throw new Exception("Unauthorized");
-        var expense = await FindExpense(userId, id) ?? throw new Exception("NotFound");
+        var expense = await FindUserExpenseById(userId, id) ?? throw new Exception("NotFound");
 
         _context.Expenses.Remove(expense);
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Expense?> FindExpense(string userId, int id)
+    public async Task<Expense?> FindUserExpenseById(string userId, int id)
         => await _context.Expenses.FirstOrDefaultAsync(expense => expense.Id == id && expense.UserId == userId);
 }

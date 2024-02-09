@@ -9,6 +9,6 @@ public class UpdateExpenseRequest
     public double Amount { get; set; }
     public string? Description { get; set; } = "";
     [Required]
-    public UpdateTypeDto Type { get; set; }
+    public CreateTypeRequest Type { get; set; }
     public DateTime Date { get; set; } = DateTime.Now;
 }
